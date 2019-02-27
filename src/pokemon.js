@@ -29,12 +29,21 @@ function createPokemon() {
       button.id = `release-pokemon-${this.id}`
 
       li.innerText = `${this.nickname} (${this.species})`
+      li.id = `pokemon-list-${this.id}`
       li.appendChild(button)
       list.appendChild(li)
     }
 
+    release() {
+      this.removeFromList()
+      releasePokemon(this)
+    }
+
     // Helper methods
 
+    removeFromList() {
+      list(this.trainer_id).removeChild(listItem(this.id))
+    }
   }
 }
 

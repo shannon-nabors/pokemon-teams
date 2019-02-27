@@ -18,3 +18,9 @@ function getNewPokemon(trainerID) {
 }
 
 // Delete a pokemon
+function releasePokemon(pokemon) {
+  fetch(`http://localhost:3000/pokemons/${pokemon.id}`, {
+    method: 'DELETE'
+  }).then(res => res.json())
+  .then(json => console.log(json))
+}

@@ -7,6 +7,11 @@ function list(id) {
   return document.querySelector(`#trainer-list-${id}`)
 }
 
+function listItem(id){
+  return document.querySelector(`#pokemon-list-${id}`)
+}
+
+
 // Primary functions
 function createTrainers(data) {
   for (const key in data) {
@@ -21,17 +26,20 @@ function addNewPokemon(data) {
   p.addToList(l)
 }
 
+
 // Event listeners
 
 function handleButtons(e) {
   if (e.target && e.target.nodeName === "BUTTON") {
     if (e.target.className === "release") {
-      console.log('clicked release')
+      let pokemon = Pokemon.all().find(p => p.id == e.target.id.slice(16))
+      pokemon.release()
     } else {
       let trainerID = e.target.id.slice(15)
       getNewPokemon(trainerID)
     }
   }
 }
+
 
 // Helper methods

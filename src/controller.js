@@ -22,12 +22,8 @@ function createTrainers(data) {
 
 function addNewPokemon(data) {
   let l = list(data.trainer_id)
-  if (l.childElementCount < 6) {
-    let p = new Pokemon(data)
-    p.addToList(l)
-  } else {
-    alert("A trainer may have a maximum of 6 pokemons. Please delete one before adding.")
-  }
+  let p = new Pokemon(data)
+  p.addToList(l)
 }
 
 
@@ -40,7 +36,12 @@ function handleButtons(e) {
       pokemon.release()
     } else {
       let trainerID = e.target.id.slice(15)
-      getNewPokemon(trainerID)
+      let l = list(trainerID)
+      if (l.childElementCount < 6) {
+        getNewPokemon(trainerID)
+      } else {
+        alert("A trainer may have a maximum of 6 pokemons. Please delete one before adding.")
+      }
     }
   }
 }

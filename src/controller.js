@@ -21,9 +21,13 @@ function createTrainers(data) {
 }
 
 function addNewPokemon(data) {
-  let p = new Pokemon(data)
   let l = list(data.trainer_id)
-  p.addToList(l)
+  if (l.childElementCount < 6) {
+    let p = new Pokemon(data)
+    p.addToList(l)
+  } else {
+    alert("A trainer may have a maximum of 6 pokemons. Please delete one before adding.")
+  }
 }
 
 

@@ -44,6 +44,7 @@ function createPokemon() {
     removeFromList() {
       list(this.trainer_id).removeChild(listItem(this.id))
     }
+    
   }
 }
 

@@ -38,11 +38,7 @@ function createTrainer() {
 
       card.appendChild(p)
       card.appendChild(button)
-
-      // let list = document.createElement('ul')
       this.initiateList(card)
-
-      // card.appendChild(list)
       main().appendChild(card)
     }
 

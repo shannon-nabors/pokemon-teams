@@ -32,16 +32,24 @@ function addNewPokemon(data) {
 function handleButtons(e) {
   if (e.target && e.target.nodeName === "BUTTON") {
     if (e.target.className === "release") {
-      let pokemon = Pokemon.all().find(p => p.id == e.target.id.slice(16))
-      pokemon.release()
+      handleReleaseButton(e.target.id.slice(16))
     } else {
-      let trainerID = e.target.id.slice(15)
-      let l = list(trainerID)
-      if (l.childElementCount < 6) {
-        getNewPokemon(trainerID)
-      } else {
-        alert("A trainer may have a maximum of 6 pokemons. Please delete one before adding.")
-      }
+      handleAddButton(e.target.id.slice(15))
     }
+  }
+}
+
+// Helper methods
+
+function handleReleaseButton(pokeID) {
+  let pokemon = Pokemon.all().find(p => p.id == pokeID)
+  pokemon.release()
+}
+
+function handleAddButton(trainerID) {
+  if (list(trainerID).childElementCount < 6) {
+    getNewPokemon(trainerID)
+  } else {
+    alert("A trainer may have a maximum of 6 pokemons. Please delete one before adding.")
   }
 }

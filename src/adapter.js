@@ -14,7 +14,7 @@ function getNewPokemon(trainerID) {
     },
     body: JSON.stringify({trainer_id: `${trainerID}`})
   }).then(res => res.json())
-  .then(json => console.log(json))
+  .then(json => addNewPokemon(json))
 }
 
 // Delete a pokemon

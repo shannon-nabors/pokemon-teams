@@ -50,10 +50,13 @@ function createTrainer() {
 
     initiateList(trainerCard) {
       let list = document.createElement('ul')
+      list.id = `trainer-list-${this.id}`
+
       this.pokemons.forEach( p => {
         let pokemon = Pokemon.all().find(poke => poke.id == p.id)
         pokemon.addToList(list)
       })
+
       trainerCard.appendChild(list)
     }
   }

@@ -6,6 +6,15 @@ function getTrainers() {
 }
 
 // Post a pokemon
-
+function getNewPokemon(trainerID) {
+  fetch('http://localhost:3000/pokemons', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({trainer_id: `${trainerID}`})
+  }).then(res => res.json())
+  .then(json => console.log(json))
+}
 
 // Delete a pokemon

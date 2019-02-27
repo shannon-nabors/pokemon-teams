@@ -9,6 +9,8 @@ function createTrainer() {
       this.name = trainerObj.name
       this.pokemons = trainerObj.pokemons
       allTrainers.push(this)
+
+      this.pokemons.forEach(p => new Pokemon(p))
     }
 
     // Class methods
@@ -34,17 +36,26 @@ function createTrainer() {
       button.innerText = "Add Pokemon"
       button.id = `trainer-${this.id}-button`
 
-      let list = document.createElement('ul')
-      list.innerText = "I'm a list"
-
       card.appendChild(p)
       card.appendChild(button)
-      card.appendChild(list)
+
+      // let list = document.createElement('ul')
+      this.initiateList(card)
+
+      // card.appendChild(list)
       main().appendChild(card)
     }
 
     // Helper methods
 
+    initiateList(trainerCard) {
+      let list = document.createElement('ul')
+      this.pokemons.forEach( p => {
+        let pokemon = Pokemon.all().find(poke => poke.id == p.id)
+        pokemon.addToList(list)
+      })
+      trainerCard.appendChild(list)
+    }
   }
 }
 

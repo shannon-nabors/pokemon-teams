@@ -20,6 +20,18 @@ function createPokemon() {
 
     // Instance methods
 
+    addToList(list) {
+      let li = document.createElement('li')
+      let button = document.createElement('button')
+
+      button.innerText = "Release"
+      button.className = "release"
+      button.id = `release-pokemon-${this.id}`
+
+      li.innerText = `${this.nickname} (${this.species})`
+      li.appendChild(button)
+      list.appendChild(li)
+    }
 
     // Helper methods
 

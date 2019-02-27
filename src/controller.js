@@ -11,4 +11,17 @@ function createTrainers(data) {
   Trainer.displayAll()
 }
 
+// Event listeners
+
+function handleButtons(e) {
+  if (e.target && e.target.nodeName === "BUTTON") {
+    if (e.target.className === "release") {
+      console.log('clicked release')
+    } else {
+      let trainerID = e.target.id.slice(15)
+      getNewPokemon(trainerID)
+    }
+  }
+}
+
 // Helper methods

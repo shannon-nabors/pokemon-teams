@@ -34,7 +34,7 @@ function createTrainer() {
 
       let button = document.createElement('button')
       button.innerText = "Add Pokemon"
-      button.id = `trainer-${this.id}-button`
+      button.id = `trainer-button-${this.id}`
 
       card.appendChild(p)
       card.appendChild(button)
